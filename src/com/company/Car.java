@@ -3,7 +3,7 @@ package com.company;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle{
 
     private Scanner input = new Scanner(System.in);
     private int year;
@@ -12,18 +12,8 @@ public class Car extends Vehicle {
     private int speed = 0;
     private int gas = 100;
 
-    public Car() {
-        setModel();
-        setYear();
-        setMake();
-        setSpeed(0);
-        setGas(100);
-    }
-
     public Car(int year, String make, String model, int speed, int gas) {
-        this.year = year;
-        this.make = make;
-        this.model = model;
+        super(year, make, model);
         this.speed = speed;
         this.gas = gas;
     }
@@ -98,7 +88,7 @@ public class Car extends Vehicle {
             car.setSpeed(car.getSpeed() + 1);
             car.setGas(car.getGas() - 1);
 
-            System.out.println("The" + car.getMake() + " " + car.getModel() + " is going " + getSpeed() + " MPH and has " + getGas() + " % of it's gas left.");
+            System.out.println("The" + car.getMake() + " " + car.getModel() + getYear() + " is going " + getSpeed() + " MPH and has " + getGas() + " % of it's gas left.");
 
         }
         public void driveCar (Car car){
@@ -106,7 +96,9 @@ public class Car extends Vehicle {
 
                 car.setSpeed(car.getSpeed() - 1);
                 car.setGas(car.getGas() - 1);
-                System.out.println("The" + car.getMake() + " " + car.getModel() + " is going " + getSpeed() + " MPH and has " + getGas() + " % of it's gas left.");
+                System.out.println("The" + car.getMake() + " " + car.getModel() + getYear() + " is going " + getSpeed() + " MPH and has " + getGas() + " % of it's gas left.");
 
             }
         }
+    }
+}

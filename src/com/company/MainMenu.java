@@ -9,8 +9,35 @@ public class MainMenu {
 
     protected  void createCar() {
 
-        Car car = new Car();
-        car.getCarInfo();
+        System.out.println("what kind of car would you like to create?");
+        System.out.println("1. Custom Car \n2. Ready to go \n3. Exit ");
+        try {
+            switch (input.nextInt()) {
+                case 1:
+                    //Acelerate
+                    Car car = new Car();
+                    car.getCarInfo();
+                    menu(car);
+                    break;
+                case 2:
+                    //decelerate
+                    Corvette corvette = new Corvette(2018,"corvette,", "Z06", 0, 100, "Red" );
+                    corvette.getCorvetteInfo();
+                    menu(corvette);
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("please enter a number between 1 and 3.");
+                    createCar();
+            }
+
+        }catch (InputMismatchException ime) {
+            input.nextLine();
+            System.out.println("please enter a number between 1 and 4.");
+            createCar();
+        }
     }
 
     public void menu (Car car) {
@@ -29,6 +56,7 @@ public class MainMenu {
                     break;
                 case 3:
                     //fill up with gas
+                    car.driveCar(car);
                     break;
                 case 4:
                     //Exit

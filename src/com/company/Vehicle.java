@@ -1,15 +1,17 @@
 package com.company;
 
-public class Vehicle {
+public class Vehicle{
 
     private int year;
     private String make;
     private String model;
 
     public Vehicle(int year, String make, String model) {
+
         this.year = year;
         this.make = make;
         this.model = model;
+
     }
 
     public int getYear() {
@@ -21,7 +23,7 @@ public class Vehicle {
     }
 
     public String getMake() {
-        return make;
+        return getMake();
     }
 
     public void setMake(String make) {
@@ -29,7 +31,7 @@ public class Vehicle {
     }
 
     public String getModel() {
-        return model;
+        return getModel();
     }
 
     public void setModel(String model) {
